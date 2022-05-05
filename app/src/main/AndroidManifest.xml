@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.miguel_lm.socialmedia">
+
+    <uses-feature
+        android:name="android.hardware.camera2"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+
+    <!--android:name=".utils.App"-->
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_infinity"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_infinity_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.SocialMedia">
+        <activity
+            android:name=".ui.activities.ChatActivity"
+            android:theme="@style/NavigationBarColorChanges"
+            android:exported="true" />
+        <activity
+            android:name=".ui.activities.FiltersActivity"
+            android:exported="true"
+            android:theme="@style/NavigationBarColorChanges"
+            android:parentActivityName=".ui.activities.HomeActivity" />
+        <activity
+            android:name=".ui.activities.UserProfileActivity"
+            android:exported="true"
+            android:theme="@style/NavigationBarColorChanges"
+            android:parentActivityName=".ui.activities.PostDetailActivity" />
+        <activity
+            android:name=".ui.activities.PostDetailActivity"
+            android:exported="true"
+            android:theme="@style/NavigationBarColorChanges"
+            android:parentActivityName=".ui.activities.HomeActivity" />
+        <activity
+            android:name=".ui.activities.EditProfileActivity"
+            android:theme="@style/NavigationBarColorChanges"
+            android:exported="true" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.miguel_lm.socialmedia"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <activity
+            android:name=".ui.activities.PostActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.activities.CompleteProfileActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.activities.SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.SocialMedia.Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.activities.HomeActivity"
+            android:exported="true"
+            android:theme="@style/NavigationBarColorChanges"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+        <activity
+            android:name=".ui.activities.RegisterActivity"
+            android:exported="true"
+            android:theme="@style/Theme.SocialMedia.NavigationBarColor" />
+        <activity
+            android:name=".ui.activities.LoginActivity"
+            android:exported="true"
+            android:theme="@style/Theme.SocialMedia.NavigationBarTransparent" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+
+        <service
+            android:name=".services.MyFirebaseMessagingClient"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@mipmap/ic_infinity" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/red" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="@string/default_notification_channel_id" />
+
+        <receiver android:name=".receivers.MessageReceiver"
+            android:enabled="true"
+            android:exported="false" />
+
+    </application>
+
+</manifest>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fomdo_gradiant_red">
+
+    <ImageView
+        android:id="@+id/iv_back"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="12dp"
+        android:src="@drawable/ic_arrow_back_white"
+        tools:ignore="ContentDescription" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/circleProfile"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:layout_toRightOf="@+id/iv_back"
+        android:src="@drawable/ic_person"
+        app:civ_circle_background_color="@color/gray"
+        tools:ignore="RtlHardcoded" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/circle_cenected"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="73dp"
+        android:layout_marginTop="30dp"
+        app:civ_circle_background_color="@color/white"
+        app:civ_border_width="0.2dp"
+        app:civ_border_color="@color/white"
+        android:src="@drawable/green_circle"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/tv_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_toEndOf="@+id/circleProfile"
+        android:layout_toRightOf="@+id/circleProfile"
+        android:maxLines="1"
+        android:text="@string/nombre_de_usuario"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        tools:ignore="RtlHardcoded" />
+
+    <TextView
+        android:id="@+id/tv_relativeTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_username"
+        android:layout_marginStart="10dp"
+        android:layout_toEndOf="@+id/circleProfile"
+        android:layout_toRightOf="@+id/circleProfile"
+        android:maxLines="1"
+        android:text=""
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        tools:ignore="RtlHardcoded" />
+
+</RelativeLayout>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2703125" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/drawable-v24/round_background.xml" value="0.2703125" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/drawable/button_border.xml" value="0.2703125" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/drawable/circular_view.xml" value="0.1712962962962963" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/drawable/circular_viewt.xml" value="0.21574074074074073" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/drawable/custom_chat_toolbar.xml" value="0.2703125" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/drawable/custom_edittext_chat.xml" value="0.2703125" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/drawable/ic_add.xml" value="0.1712962962962963" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/drawable/ic_arrow_back.xml" value="0.2703125" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/drawable/ic_arrow_back_white.xml" value="0.2703125" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.2703125" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/drawable/ic_baseline_email_24.xml" value="0.2703125" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/drawable/ic_cancel.xml" value="0.1787037037037037" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/drawable/ic_chat.xml" value="0.2703125" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/drawable/ic_description.xml" value="0.2703125" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/drawable/ic_edit.xml" value="0.2703125" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/drawable/ic_filter_list.xml" value="0.2703125" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/drawable/ic_home.xml" value="0.2703125" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/drawable/ic_keyboard_arrow_left.xml" value="0.2703125" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2703125" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/drawable/ic_money.xml" value="0.2703125" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/drawable/ic_password.xml" value="0.2703125" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/drawable/ic_person.xml" value="0.2703125" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/drawable/ic_person_gray.xml" value="0.2703125" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/drawable/ic_person_pin.xml" value="0.2703125" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/drawable/ic_profile.xml" value="0.2703125" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/drawable/ic_videogame.xml" value="0.2703125" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/drawable/logo_google.xml" value="0.2074074074074074" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/drawable/round_background_transparent.xml" value="0.2703125" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/drawable/rounded_linear_layout.xml" value="0.2703125" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/drawable/rounded_linear_layout_gray.xml" value="0.225" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/drawable/shape_round.xml" value="0.2703125" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/drawable/splash_mode.xml" value="0.17407407407407408" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/layout/action_bar_toolbar.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/layout/activity_chat.xml" value="0.264" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/layout/activity_complete_profile.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/layout/activity_edit_profile.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/layout/activity_filters.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/layout/activity_home.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/layout/activity_post.xml" value="0.264" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/layout/activity_post_detail.xml" value="0.264" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/layout/activity_register.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/layout/activity_splash.xml" value="0.25" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/layout/activity_user_profile.xml" value="0.25" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/layout/cardview_chat.xml" value="0.22" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/layout/cardview_comment.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/layout/cardview_message.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/layout/cardview_my_post.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/layout/cardview_post.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/layout/custom_chat_toolbar.xml" value="0.25" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/layout/fragment_chats.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/layout/fragment_filter.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/layout/fragment_home.xml" value="0.22" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/layout/fragment_profile.xml" value="0.25" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/layout/slider_layout_item.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/menu/menu.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/mipmap-anydpi-v26/ic_infinity.xml" value="0.1925925925925926" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/mipmap-anydpi-v26/ic_infinity_2.xml" value="0.1925925925925926" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/mipmap-anydpi-v26/ic_infinity_2_round.xml" value="0.19722222222222222" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/mipmap-anydpi-v26/ic_infinity_round.xml" value="0.19722222222222222" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1925925925925926" />
+        <entry key="..\:/Users/migue/AndroidStudioProjects/SocialMedia/app/src/main/res/xml/file_paths.xml" value="0.25416666666666665" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
