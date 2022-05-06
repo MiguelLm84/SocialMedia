@@ -9,5 +9,5 @@ dependencyResolutionManagement {
         maven { url "https://jitpack.io" }
     }
 }
-rootProject.name = "SocialMedia"
+rootProject.name = "Infinity"
 include ':app'

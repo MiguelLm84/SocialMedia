@@ -5,6 +5,7 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.miguel_lm.socialmedia.model.User;
 import java.util.Date;
 import java.util.HashMap;
@@ -50,6 +51,10 @@ public class UserProvider {
         map.put("lastConnect", new Date().getTime());
 
         return mCollection.document(idUser).update(map);
+    }
+
+    public Query getAll(){
+        return mCollection.orderBy("username", Query.Direction.DESCENDING);
     }
 }
 

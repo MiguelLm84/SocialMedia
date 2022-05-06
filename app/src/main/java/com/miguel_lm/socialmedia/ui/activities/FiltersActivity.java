@@ -34,7 +34,7 @@ public class FiltersActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_filters);
-        inits();
+        init();
     }
 
     @Override
@@ -62,7 +62,7 @@ public class FiltersActivity extends AppCompatActivity {
         ViewedMessageHelper.updateOnline(false, FiltersActivity.this);
     }
 
-    private void inits() {
+    private void init() {
 
         tv_numberFilter = findViewById(R.id.tv_numberFilter);
         recyclerPost = findViewById(R.id.recyclerFilter);
@@ -88,5 +88,11 @@ public class FiltersActivity extends AppCompatActivity {
         }
 
         return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
     }
 }

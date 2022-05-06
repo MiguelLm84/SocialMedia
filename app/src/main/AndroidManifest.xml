@@ -10,7 +10,6 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.GET_TASKS" />
 
-    <!--android:name=".utils.App"-->
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_infinity"
@@ -19,28 +18,32 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SocialMedia">
         <activity
-            android:name=".ui.activities.ChatActivity"
-            android:theme="@style/NavigationBarColorChanges"
+            android:name=".ui.activities.ViewImageActivity"
+            android:theme="@style/Theme.SocialMedia.NavigationBarColor"
             android:exported="true" />
+        <activity
+            android:name=".ui.activities.ChatActivity"
+            android:exported="true"
+            android:theme="@style/NavigationBarColorChanges" />
         <activity
             android:name=".ui.activities.FiltersActivity"
             android:exported="true"
-            android:theme="@style/NavigationBarColorChanges"
-            android:parentActivityName=".ui.activities.HomeActivity" />
+            android:parentActivityName=".ui.activities.HomeActivity"
+            android:theme="@style/NavigationBarColorChanges" />
         <activity
             android:name=".ui.activities.UserProfileActivity"
             android:exported="true"
-            android:theme="@style/NavigationBarColorChanges"
-            android:parentActivityName=".ui.activities.PostDetailActivity" />
+            android:parentActivityName=".ui.activities.PostDetailActivity"
+            android:theme="@style/NavigationBarColorChanges" />
         <activity
             android:name=".ui.activities.PostDetailActivity"
             android:exported="true"
-            android:theme="@style/NavigationBarColorChanges"
-            android:parentActivityName=".ui.activities.HomeActivity" />
+            android:parentActivityName=".ui.activities.HomeActivity"
+            android:theme="@style/NavigationBarColorChanges" />
         <activity
             android:name=".ui.activities.EditProfileActivity"
-            android:theme="@style/NavigationBarColorChanges"
-            android:exported="true" />
+            android:exported="true"
+            android:theme="@style/NavigationBarColorChanges" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -104,10 +107,10 @@
             android:name="com.google.firebase.messaging.default_notification_channel_id"
             android:value="@string/default_notification_channel_id" />
 
-        <receiver android:name=".receivers.MessageReceiver"
+        <receiver
+            android:name=".receivers.MessageReceiver"
             android:enabled="true"
             android:exported="false" />
-
     </application>
 
 </manifest>

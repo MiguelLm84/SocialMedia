@@ -57,7 +57,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     private void events(){
 
-        circleImageBack.setOnClickListener(v -> finish());
+        circleImageBack.setOnClickListener(v -> onBackPressed());
         btn_registrar.setOnClickListener(v -> register());
     }
 
@@ -167,5 +167,12 @@ public class RegisterActivity extends AppCompatActivity {
             ed_password_reg.setError("Nombre, email y/o password incorrectos.");
             ed_password_reg.requestFocus();
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
     }
 }

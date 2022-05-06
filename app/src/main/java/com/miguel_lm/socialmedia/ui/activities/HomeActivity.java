@@ -83,4 +83,10 @@ public class HomeActivity extends AppCompatActivity {
 
         tokenProvider.create(authProvider.getUid());
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+    }
 }

@@ -20,6 +20,6 @@ public class CommentsProvider {
     }
 
     public Query getCommentByPost(String idPost){
-        return mCollection.whereEqualTo("idPost", idPost);
+        return mCollection.whereEqualTo("idPost", idPost).orderBy("timestamp", Query.Direction.DESCENDING);
     }
 }

@@ -113,7 +113,7 @@ public class EditProfileActivity extends AppCompatActivity {
 
     private void events(){
 
-        mCircleImageView.setOnClickListener(v -> finish());
+        mCircleImageView.setOnClickListener(v -> onBackPressed());
         circle_image_profile.setOnClickListener(v -> selectOptionImage(1));
         iv_cover_image.setOnClickListener(v -> selectOptionImage(2));
         btn_edit_profile.setOnClickListener(v -> clickEditProfile());
@@ -405,5 +405,12 @@ public class EditProfileActivity extends AppCompatActivity {
             mPhotoFile2 = new File(absolutePhotoPath2);
             Picasso.with(EditProfileActivity.this).load(mPhotoPath2).into(iv_cover_image);
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
     }
 }

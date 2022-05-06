@@ -35,6 +35,7 @@ public class LoginActivity extends AppCompatActivity {
     AuthProvider authProvider;
     UserProvider userProvider;
     private GoogleSignInClient mGoogleSignInClient;
+    private long tiempoParaSalir = 0;
     AlertDialog mDialog;
     String email = "";
     String password = "";
@@ -212,5 +213,18 @@ public class LoginActivity extends AppCompatActivity {
 
         Log.d("CAMPO", "Email: " + email);
         Log.d("CAMPO", "Password: " + password);
+    }
+
+    @Override
+    public void onBackPressed() {
+        long time = System.currentTimeMillis();
+        if (time - tiempoParaSalir > 3000) {
+            tiempoParaSalir = time;
+            Toast.makeText(this, "Presione de nuevo 'Atrás' si desea salir",
+                    Toast.LENGTH_SHORT).show();
+        } else {
+            super.onBackPressed();
+            overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+        }
     }
 }

@@ -9,12 +9,13 @@ import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
@@ -65,7 +66,8 @@ public class PostDetailActivity extends AppCompatActivity {
     TextView tv_username_info, tv_phone_info, tv_titleGame,
             tv_categoryInfo, tv_title_descriptionInfo,
             tv_descriptionInfo, tv_relative_time, tv_number_likes;
-    Button btn_showProfile;
+    Button btn_showProfile, btn_cancel, btn_ok;
+    EditText ed_txt_dialog;
     FloatingActionButton fab_slider;
     ImageView iv_categoryInfo;
     String idUser = "";
@@ -78,6 +80,7 @@ public class PostDetailActivity extends AppCompatActivity {
     NotificationProvider notificationProvider;
     TokenProvider tokenProvider;
     ListenerRegistration listenerRegistration;
+    //ListenerRegistration listenerRegistrationComments;
 
 
     @Override
@@ -162,51 +165,47 @@ public class PostDetailActivity extends AppCompatActivity {
 
     private void events(){
 
-        fab_slider.setOnClickListener(v -> showDialogComment());
+        //fab_slider.setOnClickListener(v -> showDialogComment());
+        fab_slider.setOnClickListener(v -> showDialog());
         btn_showProfile.setOnClickListener(v -> goToShowProfile());
     }
 
-    private void showDialogComment() {
+    private void showDialog(){
 
-        AlertDialog.Builder alert = new AlertDialog.Builder(PostDetailActivity.this);
-        alert.setTitle("COMENTARIO");
-        alert.setMessage("Ingresa un comentario");
+        AlertDialog.Builder builder = new AlertDialog.Builder(PostDetailActivity.this);
+        final View dialogLayout = LayoutInflater.from(PostDetailActivity.this)
+                .inflate(R.layout.dialog_comment, null);
+        builder.setView(dialogLayout);
+        final AlertDialog dialog = builder.create();
+        initDialog(dialogLayout);
+        btn_cancel.setOnClickListener(v -> dialog.dismiss());
+        btn_ok.setOnClickListener(v -> actionButtonOk(dialog));
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.show();
+    }
 
-        EditText editText = new EditText(PostDetailActivity.this);
-        editText.setHint("Texto");
+    private void actionButtonOk(final AlertDialog dialog) {
 
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
-        );
+        String value = ed_txt_dialog.getText().toString();
 
-        params.setMargins(36, 0, 36, 36);
-        editText.setLayoutParams(params);
-        RelativeLayout container = new RelativeLayout(PostDetailActivity.this);
+        if(!value.isEmpty()){
+            createComment(value);
+            dialog.dismiss();
 
-        RelativeLayout.LayoutParams relativeParams = new RelativeLayout.LayoutParams(
-                RelativeLayout.LayoutParams.MATCH_PARENT,
-                RelativeLayout.LayoutParams.WRAP_CONTENT
-        );
+        } else {
+            Toast.makeText(PostDetailActivity.this,
+                    "Debe ingresar el comentario", Toast.LENGTH_SHORT).show();
+        }
+    }
 
-        container.setLayoutParams(relativeParams);
-        container.addView(editText);
-        alert.setView(container);
+    private void initDialog(View dialogLayout) {
 
-        alert.setPositiveButton("OK", (dialog, which) -> {
-            String value = editText.getText().toString();
+        btn_cancel = dialogLayout.findViewById(R.id.btn_cancel_dialog);
+        btn_ok = dialogLayout.findViewById(R.id.btn_ok_dialog);
+        ed_txt_dialog = dialogLayout.findViewById(R.id.ed_txt_dialog);
 
-            if(!value.isEmpty()){
-                createComment(value);
-
-            } else {
-                Toast.makeText(PostDetailActivity.this,
-                        "Debe ingresar el comentario", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        alert.setNegativeButton("Cancelar", (dialog, which) -> dialog.dismiss());
-        alert.show();
+        ed_txt_dialog.getBackground().setColorFilter(getResources()
+                .getColor(R.color.red), PorterDuff.Mode.SRC_ATOP);
     }
 
     private void createComment(final String value) {
@@ -217,7 +216,7 @@ public class PostDetailActivity extends AppCompatActivity {
         comment.setIdUser(authProvider.getUid());
         comment.setTimestamp(new Date().getTime());
 
-        commentsProvider.create(comment). addOnCompleteListener(task -> {
+        commentsProvider.create(comment).addOnCompleteListener(task -> {
             if(task.isSuccessful()) {
                 sendNotification(value);
                 Toast.makeText(PostDetailActivity.this,
@@ -401,5 +400,11 @@ public class PostDetailActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
     }
 }

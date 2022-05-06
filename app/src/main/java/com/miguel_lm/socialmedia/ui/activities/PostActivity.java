@@ -124,7 +124,7 @@ public class PostActivity extends AppCompatActivity {
         iv_ps4.setOnClickListener(v -> changeNameCategory("PS4"));
         iv_xbox.setOnClickListener(v -> changeNameCategory("XBOX"));
         iv_nintendo.setOnClickListener(v -> changeNameCategory("NINTENDO"));
-        circleImageBack.setOnClickListener(v -> finish());
+        circleImageBack.setOnClickListener(v -> onBackPressed());
     }
 
     private void selectOptionImage(final int numberImage) {
@@ -344,5 +344,12 @@ public class PostActivity extends AppCompatActivity {
             mPhotoFile2 = new File(absolutePhotoPath2);
             Picasso.with(PostActivity.this).load(mPhotoPath2).into(iv_subirImagen2);
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
     }
 }

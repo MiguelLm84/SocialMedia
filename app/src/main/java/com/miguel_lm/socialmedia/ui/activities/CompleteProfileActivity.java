@@ -11,8 +11,6 @@ import com.miguel_lm.socialmedia.R;
 import com.miguel_lm.socialmedia.model.User;
 import com.miguel_lm.socialmedia.provaiders.AuthProvider;
 import com.miguel_lm.socialmedia.provaiders.UserProvider;
-import com.squareup.picasso.Picasso;
-
 import java.util.Date;
 import java.util.Objects;
 import dmax.dialog.SpotsDialog;
@@ -91,5 +89,11 @@ public class CompleteProfileActivity extends AppCompatActivity {
                         "No se ha podido almacenar al usuario en la BD", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
     }
 }

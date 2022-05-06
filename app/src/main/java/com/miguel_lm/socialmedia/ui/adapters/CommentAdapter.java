@@ -32,7 +32,7 @@ public class CommentAdapter extends FirestoreRecyclerAdapter<Comment, CommentAda
     protected void onBindViewHolder(@NonNull viewHolder holder, int position, @NonNull Comment comment) {
 
         DocumentSnapshot document = getSnapshots().getSnapshot(position);
-        final String commentId = document.getId();
+        //final String commentId = document.getId();
         String idUser = document.getString("idUser");
 
         holder.tv_descriptionComment.setText(comment.getComment());

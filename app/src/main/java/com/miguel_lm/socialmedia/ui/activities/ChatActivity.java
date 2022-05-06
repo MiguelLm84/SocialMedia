@@ -4,11 +4,15 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
@@ -70,6 +74,8 @@ public class ChatActivity extends AppCompatActivity {
     NotificationProvider notificationProvider;
     TokenProvider tokenProvider;
     long mIdNotificationChat;
+
+    Drawable image;
 
 
     @Override
@@ -185,12 +191,28 @@ public class ChatActivity extends AppCompatActivity {
         data.put("idReceiver", message.getIdReceiver());
         data.put("idChat", message.getIdChat());
 
-        if(imageSender.equals("")){
-            imageSender = "IMAGEN NO VÁLIDA";
+        image = ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_person_gray);
+
+        if(imageSender != null){
+            if(imageSender.equals("")){
+                //imageSender = "IMAGEN NO VÁLIDA";
+
+                imageSender = image + "";
+                Toast.makeText(ChatActivity.this, "IMAGEN NO VÁLIDA", Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            imageSender = image + "";
         }
 
-        if(imageReceiver.equals("")){
-            imageReceiver = "IMAGEN NO VÁLIDA";
+        if(imageReceiver != null){
+            if(imageReceiver.equals("")){
+                //imageSender = "IMAGEN NO VÁLIDA";
+
+                imageReceiver = image + "";
+                Toast.makeText(ChatActivity.this, "IMAGEN NO VÁLIDA", Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            imageReceiver = image + "";
         }
 
         data.put("imageSender", imageSender);
@@ -204,42 +226,51 @@ public class ChatActivity extends AppCompatActivity {
             idSender = extraIdUser1;
         }
 
+        sendNotificationResponse(idSender, data, token);
+    }
+
+    private void sendNotificationResponse(String idSender,  final Map<String, String> data, final String token){
+
+        notificationProvider.sendNotification(createBody(idSender, data, token)).enqueue(new Callback<FCMResponse>() {
+            @Override
+            public void onResponse(@NonNull Call<FCMResponse> call, @NonNull Response<FCMResponse> response) {
+
+                if(response.body() != null) {
+
+                    if(response.body().getSuccess() == 1) {
+                        Log.d("NOTIFICACION OK", "La notificación se envió correctamente");
+
+                    } else {
+                        Toast.makeText(ChatActivity.this, "La notificación no se ha podido enviar", Toast.LENGTH_SHORT).show();
+                    }
+
+                } else {
+                    Toast.makeText(ChatActivity.this, "La notificación no se ha podido enviar", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<FCMResponse> call, @NonNull Throwable t) {
+
+            }
+        });
+    }
+
+    private FCMBody createBody(String idSender,  final Map<String, String> data, final String token) {
+
         messageProvider.getLastMessagerSender(extraIdChat, idSender).get()
                 .addOnSuccessListener(queryDocumentSnapshots -> {
-                   int size =  queryDocumentSnapshots.size();
-                   String lastMessage;
+                    int size = queryDocumentSnapshots.size();
+                    String lastMessage;
 
-                   if(size > 0){
-                       lastMessage = queryDocumentSnapshots.getDocuments().get(0).getString("message");
-                       data.put("lastMessage", lastMessage);
-                   }
+                    if (size > 0) {
+                        lastMessage = queryDocumentSnapshots.getDocuments().get(0).getString("message");
+                        data.put("lastMessage", lastMessage);
+                    }
 
-                    FCMBody body = new FCMBody(token, "high", "4500s", data);
-
-                    notificationProvider.sendNotification(body).enqueue(new Callback<FCMResponse>() {
-                        @Override
-                        public void onResponse(@NonNull Call<FCMResponse> call, @NonNull Response<FCMResponse> response) {
-
-                            if(response.body() != null) {
-
-                                if(response.body().getSuccess() == 1) {
-                                    //Toast.makeText(ChatActivity.this, "La notificación se envió correctamente", Toast.LENGTH_SHORT).show();
-
-                                } else {
-                                    Toast.makeText(ChatActivity.this, "La notificación no se ha podido enviar", Toast.LENGTH_SHORT).show();
-                                }
-
-                            } else {
-                                Toast.makeText(ChatActivity.this, "La notificación no se ha podido enviar", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-
-                        @Override
-                        public void onFailure(@NonNull Call<FCMResponse> call, @NonNull Throwable t) {
-
-                        }
-                    });
-        });
+                    //FCMBody body = new FCMBody(token, "high", "4500s", data);
+                });
+        return new FCMBody(token, "high", "4500s", data);
     }
 
     private void getLastThreeMessages(final Message msg, final String token) {
@@ -407,8 +438,18 @@ public class ChatActivity extends AppCompatActivity {
         iv_back = actionBarView.findViewById(R.id.iv_back);
 
         iv_back.setOnClickListener(v -> finish());
+        circleProfile.setOnClickListener(v -> viewImage());
 
         getUserInfo();
+    }
+
+    private void viewImage() {
+
+        Intent i = new Intent(ChatActivity.this, ViewImageActivity.class);
+        //i.putExtra("idUser1", authProvider.getUid());
+        i.putExtra("idUser1", extraIdUser1);
+        startActivity(i);
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
     }
 
     @SuppressLint("SetTextI18n")
@@ -469,5 +510,11 @@ public class ChatActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
     }
 }
